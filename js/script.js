@@ -19,7 +19,7 @@ const promoCode = document.getElementById('input-promo');
 const applybutton = document.getElementById('btn-apply');
 
 
-
+// calculate total price
 function calculatePrice() {
     const product = Number(productCost.innerText);
     const memory = Number(memoryCost.innerText);
@@ -30,11 +30,13 @@ function calculatePrice() {
     grandTotal.innerText = subTotal;
 }
 
+// calculate grand total price after apply promocode
 function promoDiscount() {
     const grandCost = parseFloat(grandTotal.innerText);
     const afterDiscount = grandCost - ((grandCost / 100) * 20);
     grandTotal.innerText = afterDiscount;
 }
+
 
 //handle memory buttons
 memory8GB.addEventListener('click', function () {
@@ -71,14 +73,10 @@ expressDelivery.addEventListener('click', function () {
     deliveryCost.innerText = '20';
     calculatePrice();
 });
-
+// handle promocode button
 applybutton.addEventListener('click', function () {
     const inputPromo = promoCode.value;
     const code = 'stevekaku';
-    // if(inputPromo == 'stevekaku'){
-    //     promoDiscount();
-    //     PromoCode.value = '';
-    // }
     if(inputPromo.toLowerCase() == code.toLowerCase()){
         promoDiscount();
         promoCode.value = '';
