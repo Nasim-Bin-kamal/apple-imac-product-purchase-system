@@ -20,8 +20,8 @@ const applybutton = document.getElementById('btn-apply');
 
 // update product by its cost
 function updateProduct(product, price) {
-    const memoryCost = document.getElementById(product + '-cost');
-    memoryCost.innerText = price;
+    const productCost = document.getElementById(product + '-cost');
+    productCost.innerText = price;
     calculatePrice();
 }
 
