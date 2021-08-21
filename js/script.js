@@ -36,13 +36,12 @@ function calculatePrice() {
     grandTotal.innerText = subTotal;
 }
 
-// calculate grand total price after apply promocode
+//calculate grand total price after apply promocode
 function promoDiscount() {
     const grandCost = parseFloat(grandTotal.innerText);
     const afterDiscount = grandCost - ((grandCost / 100) * 20);
     grandTotal.innerText = afterDiscount;
 }
-
 
 //handle memory buttons
 memory8GB.addEventListener('click', function () {
@@ -71,6 +70,7 @@ freeDelivery.addEventListener('click', function () {
 expressDelivery.addEventListener('click', function () {
     updateProduct('delivery', '20');
 });
+
 // handle promocode button
 applybutton.addEventListener('click', function () {
     const inputPromo = promoCode.value;
@@ -78,5 +78,12 @@ applybutton.addEventListener('click', function () {
     if(inputPromo.toLowerCase() == code.toLowerCase()){
         promoDiscount();
         promoCode.value = '';
+        applybutton.setAttribute('disabled', true);
+        applybutton.innerText = 'Applied';
     }
+    else{
+        promoCode.value = '';
+        alert('Invalid promo code');
+    }
+
 });
