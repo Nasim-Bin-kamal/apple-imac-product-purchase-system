@@ -38,8 +38,8 @@ function calculatePrice() {
 
 //calculate grand total price after apply promocode
 function promoDiscount() {
-    const grandCost = parseFloat(grandTotal.innerText);
-    const afterDiscount = grandCost - ((grandCost / 100) * 20);
+    const totalCost = parseFloat(totalPrice.innerText);
+    const afterDiscount = totalCost - ((totalCost / 100) * 20);
     grandTotal.innerText = afterDiscount;
 }
 
@@ -77,9 +77,6 @@ applybutton.addEventListener('click', function () {
     if(inputPromo == 'stevekaku'){
         promoDiscount();
         promoCode.value = '';
-        applybutton.setAttribute('disabled', true);
-        applybutton.innerText = 'Applied';
-        applybutton.style.backgroundColor ='red';
     }
     else{
         promoCode.value = '';
