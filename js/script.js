@@ -18,7 +18,12 @@ const grandTotal = document.getElementById('grand-total');
 const promoCode = document.getElementById('input-promo');
 const applybutton = document.getElementById('btn-apply');
 
-
+// update product by its cost
+function updateProduct(product, price) {
+    const memoryCost = document.getElementById(product + '-cost');
+    memoryCost.innerText = price;
+    calculatePrice();
+}
 
 // calculate total price
 function calculatePrice() {
@@ -37,11 +42,7 @@ function promoDiscount() {
     const afterDiscount = grandCost - ((grandCost / 100) * 20);
     grandTotal.innerText = afterDiscount;
 }
-function updateProduct(product, price) {
-    const memoryCost = document.getElementById(product + '-cost');
-    memoryCost.innerText = price;
-    calculatePrice();
-}
+
 
 //handle memory buttons
 memory8GB.addEventListener('click', function () {
