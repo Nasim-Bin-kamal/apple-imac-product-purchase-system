@@ -19,6 +19,7 @@ const promoCode = document.getElementById('input-promo');
 const applybutton = document.getElementById('btn-apply');
 
 
+
 // calculate total price
 function calculatePrice() {
     const product = Number(productCost.innerText);
@@ -36,42 +37,38 @@ function promoDiscount() {
     const afterDiscount = grandCost - ((grandCost / 100) * 20);
     grandTotal.innerText = afterDiscount;
 }
-
+function updateProduct(product, price) {
+    const memoryCost = document.getElementById(product + '-cost');
+    memoryCost.innerText = price;
+    calculatePrice();
+}
 
 //handle memory buttons
 memory8GB.addEventListener('click', function () {
-    memoryCost.innerText = '0';
-    calculatePrice();  
+    updateProduct('memory', '0');  
 });
 
 memory16GB.addEventListener('click', function () {
-    memoryCost.innerText = '180';
-    calculatePrice();
-    
+    updateProduct('memory', '180'); 
 });
 
 //handle storage buttons
 storage256GB.addEventListener('click', function () {
-    storageCost.innerText = '0';
-    calculatePrice();
+    updateProduct('storage', '0');
 });
 storage512GB.addEventListener('click', function () {
-    storageCost.innerText = '100';
-    calculatePrice();
+    updateProduct('storage', '100');
 });
 storage1TB.addEventListener('click', function () {
-    storageCost.innerText = '180';
-    calculatePrice();
+    updateProduct('storage', '180');
 });
 
 // handle delivery buttons
 freeDelivery.addEventListener('click', function () {
-    deliveryCost.innerText = '0';
-    calculatePrice();
+    updateProduct('delivery', '0');
 });
 expressDelivery.addEventListener('click', function () {
-    deliveryCost.innerText = '20';
-    calculatePrice();
+    updateProduct('delivery', '20');
 });
 // handle promocode button
 applybutton.addEventListener('click', function () {
