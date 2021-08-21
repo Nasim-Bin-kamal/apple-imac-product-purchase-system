@@ -74,12 +74,12 @@ expressDelivery.addEventListener('click', function () {
 // handle promocode button
 applybutton.addEventListener('click', function () {
     const inputPromo = promoCode.value;
-    const code = 'stevekaku';
-    if(inputPromo.toLowerCase() == code.toLowerCase()){
+    if(inputPromo == 'stevekaku'){
         promoDiscount();
         promoCode.value = '';
         applybutton.setAttribute('disabled', true);
         applybutton.innerText = 'Applied';
+        applybutton.style.backgroundColor ='red';
     }
     else{
         promoCode.value = '';
